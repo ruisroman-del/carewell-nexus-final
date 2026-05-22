@@ -77,4 +77,45 @@ const modules = [
   }
 ];
 
-export default CareWellNexusWebsite;
+export default function CareWellNexusWebsite() {
+  return (
+    <main className="min-h-screen bg-teal-50 p-8 text-slate-800">
+      <section className="mx-auto max-w-5xl rounded-3xl bg-white p-8 shadow">
+        <h1 className="text-4xl font-bold text-teal-900">CareWell Nexus</h1>
+        <p className="mt-3 text-lg">
+          Digital Wellbeing and Psychosocial Safety Platform for Healthcare Professionals.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold">Training Modules</h2>
+        <div className="mt-4 grid gap-4">
+          {modules.map((module) => (
+            <div key={module.id} className="rounded-2xl bg-teal-50 p-5">
+              <h3 className="text-xl font-bold text-teal-900">{module.title}</h3>
+              <p className="mt-2"><strong>Theory:</strong> {module.theory}</p>
+              <p className="mt-2">{module.problem}</p>
+              <ul className="mt-3 list-disc pl-6">
+                {module.strategies.map((strategy) => (
+                  <li key={strategy}>{strategy}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="mt-8 text-2xl font-bold">Quiz</h2>
+        <div className="mt-4 grid gap-4">
+          {quizQuestions.map((question, index) => (
+            <div key={question.q} className="rounded-2xl bg-slate-50 p-5">
+              <p className="font-bold">{index + 1}. {question.q}</p>
+              <ul className="mt-2 list-disc pl-6">
+                {question.options.map((option) => (
+                  <li key={option}>{option}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
