@@ -77,3 +77,4 @@ const modules = [
   }
 ];
 
+export default CareWellNexusWebsite;
